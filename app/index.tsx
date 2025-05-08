@@ -7,10 +7,12 @@ export default function HomeScreen() {
   const [taskItems, setTaskItems] = useState<Array<any>>(['Hello', 'Temp', 'Test']);
 
   const handleAddTask = () => {
+    if(taskItems.includes(task)) return;
     Keyboard.dismiss()
     setTaskItems([...taskItems, task]);
     setTask(undefined);
   }
+
 
   const completeTask = (index: number) => {
     let itemsCopy = [...taskItems];
@@ -85,6 +87,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
+    borderColor: 'white',
   },
   input: {
     paddingVertical: 15,
